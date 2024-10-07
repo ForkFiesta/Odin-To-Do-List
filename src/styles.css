@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.app{
+    height: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.app-container{
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar{
+    background-color: rgb(252, 250, 248);
+    width: 280px;
+    max-width: 400px;
+    min-width: 210px;
+    height: 100%;
+}
+
+nav.sidebar-content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-top{
+    display: flex;
+    height: 5%;
+    /* border: 1px solid black; */
+}
+
+.user{
+    display: flex;
+    height: 100%;
+    /* width: 25%; */
+    gap: 10px;
+    align-items: center;
+    justify-content: baseline;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.user-circle{
+    display: flex;
+    background-color: rgb(65, 94, 209);
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    /* border: 1px solid black; */
+    
+    
+}
+.notifs{
+    display: flex;
+    /* border: 1px solid red; */
+    width: 50%;
+    /* width: 50%; */
+    justify-content: center;
+    /* align-items: center; */
+}
+.notif-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notif-icon img {
+    max-width: 100%;
+    max-height: 70%;
+    /* display: flex; */
+    /* background-image: url("./img/bell.png"); */
+
+}
+
+.notifs .notif-icon button {
+
+    padding: 0;               /* Remove any padding */
+    margin: 0;                /* Remove any margin */
+    border: none;             /* Remove border */
+    background: none;         /* Remove background */
+    display: inline-flex;     /* Keep button inline and align with image */
+    align-items: center;      /* Center the image vertically */
+    justify-content: center;  /* Center the image horizontally */
+    width: 100%;              /* Let the button size adjust to image */
+    height: 70%;             /* Let the button size adjust to image */
+    cursor: pointer;          /* Optional: add pointer cursor */
+}
+
+.side-bar-main-content-container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
+    height: 100%;
+    padding: 10px;
+    gap:10px;
+}
+.addItem, .searchItem{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* border: 1px solid red; */
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.addItemButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgb(201, 20, 0);
+    width: 25px;
+    height: 25px;
+    border-radius: 12.5px;
+}
+
+.addItemButton img {
+    max-width: 50%;
+}
+
+.addItem:hover, .searchItem:hover{
+    cursor: pointer;
+    background-color: rgb(251, 225, 199);
+}
+
+.searchIcon img{
+    height: 25px;
+    width: 25px;
+
+}
+
+
+
+
+
+
+
+
