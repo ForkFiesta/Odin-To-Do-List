@@ -12,7 +12,7 @@
 
 .app-container{
     display: flex;
-    height: 100vh;
+    height: 95vh;
     /* margin-bottom: 40px; */
 }
 
@@ -100,12 +100,13 @@ nav.sidebar-content{
 .side-bar-main-content-container{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     /* border: 1px solid blue; */
     height: 100%;
     padding: 10px;
     gap:10px;
 }
-.addItem, .searchItem, .inboxItem, .calendarItem{
+.addItem, .searchItem, .inboxItem, .calendarItem, .settingsItem{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -133,16 +134,18 @@ nav.sidebar-content{
     max-width: 50%;
 }
 
-.addItem:hover, .searchItem:hover, .inboxItem:hover, .calendarItem:hover{
+.addItem:hover, .searchItem:hover, .inboxItem:hover, .calendarItem:hover, .settingsItem:hover{
     cursor: pointer;
     background-color: rgb(251, 225, 199);
 }
 
-.searchIcon img, .inboxItem img, .calendarItem img{
+.searchIcon img, .inboxItem img, .calendarItem img, .settingsItem img{
     height: 25px;
     width: 25px;
 
 }
+
+
 
 
 
