@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radooist</title>
+<script defer src="main.js"></script></head>
+
+<body>
+    <div class="app">
+        <div class="app-container">
+            <div class="sidebar">
+                <nav class="sidebar-content">
+                    <div class="sidebar-top">
+                        <div class="user">
+                            <div class="user-circle">
+                                <p><strong>R</strong></p>
+                            </div>
+                            <div class="user-name">Raul</div>
+                        </div>
+                        <div class="notifs">
+                            <div class="notif-icon">
+                                <button>
+                                    <img src="5846d4b1994ad4088108.png" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-bar-main-content-container">
+                        <div class="top-items">
+                            <div class="addItem">
+                                <div class="addItemButton">
+                                    <img src="17a8345e73a5824f0047.png" alt="add-icon">
+
+                                </div>
+                                <div class="addItemText">
+                                    <p>Add Item</p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="searchItem">
+                                <div class="searchIcon"><img src="48625617a1f89d1ae658.png" alt="search-icon"></div>
+                                <div class="searchText">
+                                    <p>Search</p>
+                                </div>
+                            </div>
+                            <div class="inboxItem">
+                                <div class="inboxIcon"><img src="551ad8be6cc96c76ef98.png" alt="inbox-icon"></div>
+                                <div class="inboxText">
+                                    <p>Inbox</p>
+                                </div>
+                            </div>
+                            <div class="calendarItem">
+                                <div class="calendarIcon"><img src="e43b0309f31323f6424f.png" alt="calendar-icon"></div>
+                                <div class="calendarText">
+                                    <p>Today</p>
+                                </div>
+                            </div>
+                            <div class="project">
+                                <div class="projects-headline">
+                                    <p>My Projects</p>
+                                    <button id="toggleDropdown">&#9660;</button>
+                                </div>
+                                <div class="projects-container hidden" id="dropdownMenu">
+                                    <ul class="project-groups">
+                                        
+                                    </ul>
+                                    <button id="addNewProjectBtn">+ Add New Project</button>
+                                    <form id="newProjectForm" class="hidden">
+                                        <input type="text" id="newProjectName" placeholder="Enter Project Name"
+                                            required />
+                                        <button type="submit">Add</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="bottom-items">
+                            <div class="settingsItem">
+                                <div class="settingsIcon"><img src="58effdc9ee9e15f76525.png" alt="calendar-icon"></div>
+                                <div class="setttingsText">
+                                    <p>Settings</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </nav>
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span id="closeModalBtn" class="close-btn">&times;</span>
+                        <h2>Task Details</h2>
+                        <form id="taskForm">
+                            <label for="taskName">Task Name</label>
+                            <input type="text" id="taskName" name="taskName" required>
+
+                            <label for="taskDescription">Task Description</label>
+                            <textarea name="taskDescription" id="taskDescription" required></textarea>
+
+
+
+                            <label for="taskDueDate">Task Due Date</label>
+                            <input type="datetime-local" name="taskDueDate" id="taskDueDate" required>
+
+                            <label for="taskProject">Associated Project (Optional)</label>
+                            <select name="taskProject" id="taskProject">
+                                <option value="">Select Project</option>
+                            </select>
+
+
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content">
+                <h1>Tasks</h1>
+                <div class="flex-container">
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        Raul Resendez ©
+    </footer>
+
+
+</body>
+
+</html>
