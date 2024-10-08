@@ -59,6 +59,22 @@
                                     <p>Today</p>
                                 </div>
                             </div>
+                            <div class="project">
+                                <div class="projects-headline">
+                                    <p>My Projects</p>
+                                    <button id="toggleDropdown">&#9660;</button>
+                                </div>
+                                <div class="projects-container hidden" id="dropdownMenu">
+                                    <ul class="project-groups">
+                                        <li class="clickable" id="personal">Personal 🏠</li>
+                                    </ul>
+                                    <button id="addNewProjectBtn">+ Add New Project</button>
+                                    <form id="newProjectForm" class="hidden">
+                                        <input type="text" id="newProjectName" placeholder="Enter Project Name" required/>
+                                        <button type="submit">Add</button>
+                                    </form>
+                                </div>
+                            </div>
 
                         </div>
                         <div class="bottom-items">
@@ -83,8 +99,15 @@
                             <label for="taskDescription">Task Description</label>
                             <textarea name="taskDescription" id="taskDescription" required></textarea>
 
+
+
                             <label for="taskDueDate">Task Due Date</label>
                             <input type="datetime-local" name="taskDueDate" id="taskDueDate" required>
+
+                            <label for="taskProject">Associated Project (Optional)</label>
+                            <select name="taskProject" id="taskProject">
+                                <option value="">Select Project</option>
+                            </select>
 
 
                             <button type="submit">Submit</button>

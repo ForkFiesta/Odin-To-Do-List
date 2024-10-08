@@ -1,8 +1,10 @@
-export function createTask(taskName, taskDescription, taskDueDate){
+export function createTask(taskName, taskDescription, taskDueDate, taskProject = ''){
     return {
         taskName,
         taskDescription,
         taskDueDate,
+        taskProject
+
     };
 };
 
@@ -18,6 +20,7 @@ export const taskManagement = (task)=>{
 
     const addTask = (task)=>{
         tasks.push(task);
+        return task;
     }
 
     const getTasks = () => tasks;

@@ -145,6 +145,89 @@ nav.sidebar-content{
 
 }
 
+.project{
+    margin-top: 20px;
+}
+.projects-headline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.projects-headline p{
+    text-align: left;
+}
+
+.projects-container{
+    display: none;
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+.projects-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.projects-container li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.clickable{
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.clickable:hover {
+    cursor: pointer;
+    background-color: rgb(251, 225, 199);
+}
+
+/* New Project Button and Form Styling */
+#addNewProjectBtn {
+    margin-top: 10px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+#newProjectForm {
+    display: flex;
+    margin-top: 10px;
+}
+
+#newProjectForm input {
+    flex: 1;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#newProjectForm button {
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+/* Form/Modal Styling */
+
 .modal {
     display: none;
     position: fixed;
@@ -186,14 +269,14 @@ label{
     font-weight: bold;
 }
 
-input[type="text"],input[type="datetime-local"], textarea {
+input[type="text"],input[type="datetime-local"], select,textarea {
     margin-top: 5px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-textarea{
+textarea {
     height: 120px;
     resize: vertical;
 }
