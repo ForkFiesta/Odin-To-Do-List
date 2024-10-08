@@ -39,21 +39,19 @@ function addProjectsToDropdown(){
     
 }
 
-
-
-
-export function domInteraction(){
-
+function setupDropdownToggle(){
     toggleDropdown.addEventListener("click", ()=>{
         dropdownMenu.classList.toggle("show");
     });
 
+}
+
+function initializeProjectForm(){
 
     addNewProjectBtn.addEventListener("click", () =>{
         newProjectForm.classList.toggle("show");
         newProjectForm.classList.remove("hidden");
-    })
-
+    });
 
     newProjectForm.addEventListener("submit", (event)=>{
         event.preventDefault();
@@ -62,8 +60,18 @@ export function domInteraction(){
         console.log(newProjectName);
         if (newProjectName.trim()){
             projectManager.addProject(createProject(newProjectName.trim()));
-            //Create new list item
-            const newProjectItem = document.createElement("li");
+            
+            
+
+        }
+
+
+    });
+}
+
+function updateProjectLists(){
+    //Create new list item
+    const newProjectItem = document.createElement("li");
             newProjectItem.classList.add("clickable");
             newProjectItem.textContent = newProjectName;
 
@@ -73,22 +81,25 @@ export function domInteraction(){
             document.querySelector("#newProjectName").value = "";
             newProjectForm.classList.add("hidden");
 
-            //Add to project dropdown
-
-            console.log(projectList);
-
-        }
+}
 
 
-    })
+// export function domInteraction(){
+
+    
+
+    
+
+
+
 
    
 
-    addTaskElement.onclick = ()=>{
-        openModal();
+//     addTaskElement.onclick = ()=>{
+//         openModal();
 
-    }
-};
+//     }
+// };
 
 function openModal(){
     addProjectsToDropdown();
@@ -101,30 +112,40 @@ function openModal(){
         const description = document.querySelector("#taskDescription").value;
         const taskDueDate = document.querySelector("#taskDueDate").value;
         const taskProject = document.querySelector("#taskProject").value;
-        form.reset();
-        MODAL.style.display = "none";
+        
+        
         newTask = taskManager.addTask(createTask(taskName, description, taskDueDate, taskProject));
         
 
         if (projectManager.searchForProject(taskProject)){
             projectManager.addTaskToProject(taskProject, newTask);
         }
+        form.reset();
+        MODAL.style.display = "none";
         
     }
 
-    checkForModalClose();
+    checkForModalClose(form);
 
     
 };
 
-function checkForModalClose(){
+function checkForModalClose(form){
     closeModalButton.addEventListener("click", ()=>{
+        form.reset();
         MODAL.style.display = "none";
     });
 
     window.onclick = function(event){
         if (event.target == MODAL) {
+            form.reset();
             MODAL.style.display = "none";
         }
     };
+}
+
+export function initializeDOM(){
+    setupDropdownToggle();
+    initializeProjectForm();
+    addTaskElement.onclick = openModal;
 }

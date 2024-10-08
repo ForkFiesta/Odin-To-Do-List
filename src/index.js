@@ -1,4 +1,5 @@
 import "./styles.css"
-import { domInteraction } from "./domInteraction";
-domInteraction();
+import { initializeDOM } from "./domInteraction";
+
+initializeDOM();
 

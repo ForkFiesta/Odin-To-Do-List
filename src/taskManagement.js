@@ -1,9 +1,10 @@
-export function createTask(taskName, taskDescription, taskDueDate, taskProject = ''){
+export function createTask(taskName, taskDescription, taskDueDate, taskProject = '', completed=false){
     return {
         taskName,
         taskDescription,
         taskDueDate,
-        taskProject
+        taskProject,
+        completed
 
     };
 };
