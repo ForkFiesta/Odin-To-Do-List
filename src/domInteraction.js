@@ -24,12 +24,21 @@ const dropdownMenu = document.querySelector("#dropdownMenu");
 const taskManager = taskManagement();
 const projectManager = projectManagement();
 
-function addProjectToDropdown(projectname){
-    const option = document.createElement("option");
-    option.value = projectname;
-    option.textContent = projectname;
-    projectDropdown.appendChild(option);
+function addProjectsToDropdown(){
+    projectDropdown.innerHTML = "";
+    let projectArray = projectManager.getProjects();
+    projectArray.forEach(project => {
+
+        const option = document.createElement("option");
+        option.value = project.name;
+        option.textContent = project.name;
+        projectDropdown.appendChild(option);
+
+        
+    });
+    
 }
+
 
 
 
@@ -63,6 +72,9 @@ export function domInteraction(){
 
             document.querySelector("#newProjectName").value = "";
             newProjectForm.classList.add("hidden");
+
+            //Add to project dropdown
+
             console.log(projectList);
 
         }
@@ -79,6 +91,7 @@ export function domInteraction(){
 };
 
 function openModal(){
+    addProjectsToDropdown();
     MODAL.style.display = "block";
     const form = document.querySelector("#taskForm");
     form.onsubmit = (event)=>{
