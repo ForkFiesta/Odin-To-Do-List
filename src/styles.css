@@ -298,7 +298,36 @@ button[type="submit"] {
     background-color: #45a049;
   }
 
+/* The Grid */
+.main-content{
+    width: 100%;
+}
 
+.main-content h1 {
+    margin-left: 100px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.flex-container{
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items:center;
+   gap: 20px;
+}
+
+.task{
+    padding:0px 20px 0 20px;
+    width: 90%;
+    height: 100px;
+    background-color: #ff880078;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 
 

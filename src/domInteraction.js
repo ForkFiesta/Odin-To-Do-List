@@ -21,6 +21,10 @@ const toggleDropdown = document.querySelector("#toggleDropdown");
 const dropdownMenu = document.querySelector("#dropdownMenu");
 
 
+//task container
+const taskContainer = document.querySelector(".flex-container");
+
+
 const taskManager = taskManagement();
 const projectManager = projectManagement();
 
@@ -89,23 +93,59 @@ function updateProjectLists(){
 
 }
 
+function readTasks(){
+    const tasksArray = taskManager.getTasks();
+    taskContainer.innerHTML = "";
 
-// export function domInteraction(){
+    tasksArray.forEach(element => {
 
-    
+        const newTaskContainer = document.createElement("div");
+        newTaskContainer.classList.add("task");
+        newTaskContainer.id = element.taskName;
 
-    
+        const newTaskName = document.createElement("div");
+        newTaskName.innerHTML = element.taskName;
+        newTaskContainer.appendChild(newTaskName);
 
+        const newTaskDescription = document.createElement("div");
+        newTaskDescription.innerHTML = element.taskDescription;
+        newTaskContainer.appendChild(newTaskDescription);
 
+        const newTaskDueDate = document.createElement("div");
+        newTaskDueDate.innerHTML = element.taskDueDate;
+        newTaskContainer.appendChild(newTaskDueDate);
 
+        const newTaskProject = document.createElement("div");
+        newTaskProject.innerHTML = element.taskProject;
+        newTaskContainer.appendChild(newTaskProject);
 
-   
+        const newTaskCompleted = document.createElement("input");
+        newTaskCompleted.type = "checkbox";
+        newTaskCompleted.checked = element.completed || false;
+        newTaskCompleted.id = `${element.taskName}-completed`;
+        newTaskCompleted.classList.add("task-completed-checkbox");
+        
 
-//     addTaskElement.onclick = ()=>{
-//         openModal();
+        newTaskCompleted.addEventListener("change", (event)=>{
+            element.completed = event.target.checked;
+        });
+        const newTaskCompletedLabel = document.createElement("label");
+        newTaskCompletedLabel.htmlFor = newTaskCompleted.id;
+        newTaskCompletedLabel.innerText = "Completed";
 
-//     }
-// };
+        // Append the checkbox and label to the task container
+        newTaskContainer.appendChild(newTaskCompletedLabel);
+        newTaskContainer.appendChild(newTaskCompleted);
+
+        const newTaskRemoveButton = document.createElement('button');
+        newTaskRemoveButton.innerHTML = "X";
+
+        newTaskContainer.appendChild(newTaskRemoveButton);
+
+        taskContainer.appendChild(newTaskContainer);
+
+    })
+}
 
 function openModal(){
     addProjectsToDropdown();
@@ -128,6 +168,8 @@ function openModal(){
         }
         form.reset();
         MODAL.style.display = "none";
+
+        readTasks();
         
     }
 
@@ -153,5 +195,6 @@ function checkForModalClose(form){
 export function initializeDOM(){
     setupDropdownToggle();
     initializeProjectForm();
+    readTasks();
     addTaskElement.onclick = openModal;
 }
