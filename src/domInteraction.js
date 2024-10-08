@@ -55,11 +55,17 @@ function initializeProjectForm(){
 
     newProjectForm.addEventListener("submit", (event)=>{
         event.preventDefault();
+        const newProjectName = document.querySelector("#newProjectName").value.trim();
+    
+        if (newProjectName){
+            const newProject = createProject(newProjectName);
+            projectManager.addProject(newProject);
+            updateProjectLists(newProject)
+            addProjectsToDropdown();
+            newProjectForm.classList.add("hidden");
+            document.querySelector("#newProjectName").value = "";
 
-        const newProjectName = document.querySelector("#newProjectName").value;
-        console.log(newProjectName);
-        if (newProjectName.trim()){
-            projectManager.addProject(createProject(newProjectName.trim()));
+           
             
             
 
@@ -73,7 +79,7 @@ function updateProjectLists(){
     //Create new list item
     const newProjectItem = document.createElement("li");
             newProjectItem.classList.add("clickable");
-            newProjectItem.textContent = newProjectName;
+            newProjectItem.textContent = newProjectName.value;
 
             //Append new item to the project list
             projectList.appendChild(newProjectItem);
@@ -114,7 +120,7 @@ function openModal(){
         const taskProject = document.querySelector("#taskProject").value;
         
         
-        newTask = taskManager.addTask(createTask(taskName, description, taskDueDate, taskProject));
+        let newTask = taskManager.addTask(createTask(taskName, description, taskDueDate, taskProject));
         
 
         if (projectManager.searchForProject(taskProject)){
