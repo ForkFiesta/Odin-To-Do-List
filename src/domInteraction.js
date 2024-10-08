@@ -140,6 +140,8 @@ function readTasks(){
         const newTaskRemoveButton = document.createElement('button');
         newTaskRemoveButton.innerHTML = "X";
 
+        
+
         newTaskContainer.appendChild(newTaskRemoveButton);
 
         taskContainer.appendChild(newTaskContainer);
