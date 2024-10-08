@@ -8,6 +8,7 @@ const closeModalButton = document.querySelector("#closeModalBtn");
 //project and task form elements
 
 // Project Form
+const defaultProject = document.querySelector("#personal");
 const addNewProjectBtn = document.querySelector("#addNewProjectBtn");
 const newProjectForm = document.querySelector("#newProjectForm");
 const projectList = document.querySelector(".project-groups");
@@ -43,6 +44,12 @@ function addProjectsToDropdown(){
     
 }
 
+// function initializeListeningOnProjects(){
+//     defaultProject.addEventListener("click",()=>{
+//         readTasks(taskManager.getTasksByCategory(defaultProject.innerHTML));
+//     });
+// };
+
 function setupDropdownToggle(){
     toggleDropdown.addEventListener("click", ()=>{
         dropdownMenu.classList.toggle("show");
@@ -64,8 +71,8 @@ function initializeProjectForm(){
         if (newProjectName){
             const newProject = createProject(newProjectName);
             projectManager.addProject(newProject);
-            updateProjectLists(newProject)
             addProjectsToDropdown();
+            readProjects();
             newProjectForm.classList.add("hidden");
             document.querySelector("#newProjectName").value = "";
 
@@ -79,75 +86,130 @@ function initializeProjectForm(){
     });
 }
 
-function updateProjectLists(){
+function readProjects(projectArray = projectManager.getProjects()){
     //Create new list item
-    const newProjectItem = document.createElement("li");
-            newProjectItem.classList.add("clickable");
-            newProjectItem.textContent = newProjectName.value;
+    projectList.innerHTML ="";
+    projectArray.forEach((element)=>{
+        const projectItem = document.createElement("li");
+            projectItem.classList.add("clickable");
+            projectItem.textContent = element.name;
+
+            const newProjectRemoveButton = document.createElement("button");
+            newProjectRemoveButton.innerHTML = 'X';
+
+            newProjectRemoveButton.addEventListener("click", (event)=>{
+                event.stopPropagation();
+                if (taskManager.getTasksByCategory(element.name).length > 0)
+                    {
+                        alert("You must delete all items in a project before deleting the project.")
+                    }
+                    else {
+                        
+                        projectManager.removeProject(element);
+                        readProjects();
+                        readTasks();
+
+                    }
+                
+            })
+            projectItem.addEventListener("click", ()=>{
+                const filteredTasks = taskManager.getTasksByCategory(element.name);
+                readTasks(filteredTasks);
+            })
+
+            projectItem.appendChild(newProjectRemoveButton);
 
             //Append new item to the project list
-            projectList.appendChild(newProjectItem);
+            projectList.appendChild(projectItem);
+
+    })
+    
 
             document.querySelector("#newProjectName").value = "";
             newProjectForm.classList.add("hidden");
 
 }
 
-function readTasks(){
-    const tasksArray = taskManager.getTasks();
+function readTasks(tasksArray = taskManager.getTasks()){
+
+    // Clear the container to avoid duplicating tasks on each render
     taskContainer.innerHTML = "";
 
-    tasksArray.forEach(element => {
+    // Sort tasks so completed ones appear at the bottom
+    tasksArray.sort((a, b) => a.completed - b.completed);
 
+    tasksArray.forEach((element) => {
+        // Create task container
         const newTaskContainer = document.createElement("div");
         newTaskContainer.classList.add("task");
         newTaskContainer.id = element.taskName;
 
+        // Apply a "completed" style if the task is marked as completed
+        if (element.completed) {
+            newTaskContainer.classList.add("task-completed");
+        }
+
+        // Task Name
         const newTaskName = document.createElement("div");
         newTaskName.innerHTML = element.taskName;
         newTaskContainer.appendChild(newTaskName);
 
+        // Task Description
         const newTaskDescription = document.createElement("div");
         newTaskDescription.innerHTML = element.taskDescription;
         newTaskContainer.appendChild(newTaskDescription);
 
+        // Task Due Date
         const newTaskDueDate = document.createElement("div");
         newTaskDueDate.innerHTML = element.taskDueDate;
         newTaskContainer.appendChild(newTaskDueDate);
 
+        // Task Project
         const newTaskProject = document.createElement("div");
         newTaskProject.innerHTML = element.taskProject;
         newTaskContainer.appendChild(newTaskProject);
 
+        // Task Completed Checkbox
         const newTaskCompleted = document.createElement("input");
         newTaskCompleted.type = "checkbox";
         newTaskCompleted.checked = element.completed || false;
-        newTaskCompleted.id = `${element.taskName}-completed`;
         newTaskCompleted.classList.add("task-completed-checkbox");
         
-
-        newTaskCompleted.addEventListener("change", (event)=>{
+        newTaskCompleted.addEventListener("change", (event) => {
             element.completed = event.target.checked;
+            // Update styles based on completed status
+            if (element.completed) {
+                newTaskContainer.classList.add("task-completed");
+            } else {
+                newTaskContainer.classList.remove("task-completed");
+            }
+            readTasks(); // Re-render tasks to move completed ones to the bottom
         });
-        const newTaskCompletedLabel = document.createElement("label");
-        newTaskCompletedLabel.htmlFor = newTaskCompleted.id;
-        newTaskCompletedLabel.innerText = "Completed";
 
+        const newTaskCompletedLabel = document.createElement("label");
+        newTaskCompletedLabel.innerText = "Completed";
+        
         // Append the checkbox and label to the task container
         newTaskContainer.appendChild(newTaskCompletedLabel);
         newTaskContainer.appendChild(newTaskCompleted);
 
-        const newTaskRemoveButton = document.createElement('button');
+        // Remove Button
+        const newTaskRemoveButton = document.createElement("button");
         newTaskRemoveButton.innerHTML = "X";
+        newTaskRemoveButton.classList.add("remove-task-button");
 
-        
+        newTaskRemoveButton.addEventListener("click", () => {
+            taskManager.removeTask(element); // Remove from task manager
+            readTasks(); // Re-render tasks to reflect removal
+        });
 
         newTaskContainer.appendChild(newTaskRemoveButton);
 
+        // Append the task container to the parent container
         taskContainer.appendChild(newTaskContainer);
-
-    })
+    });
 }
+
 
 function openModal(){
     addProjectsToDropdown();
@@ -195,8 +257,10 @@ function checkForModalClose(form){
 }
 
 export function initializeDOM(){
+    // initializeListeningOnProjects();
     setupDropdownToggle();
     initializeProjectForm();
     readTasks();
+    readProjects();
     addTaskElement.onclick = openModal;
 }
