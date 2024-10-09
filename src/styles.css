@@ -1,360 +1,348 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-
-
-.app{
-    height: 100%;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.app {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.app-container{
-    display: flex;
-    height: 95vh;
-    /* margin-bottom: 40px; */
+.app-container {
+  display: flex;
+  height: 95vh;
+  /* margin-bottom: 40px; */
 }
 
-.sidebar{
-    background-color: rgb(252, 250, 248);
-    width: 280px;
-    max-width: 400px;
-    min-width: 210px;
-    height: 100%;
+.sidebar {
+  background-color: rgb(252, 250, 248);
+  width: 280px;
+  max-width: 400px;
+  min-width: 210px;
+  height: 100%;
 }
 
-nav.sidebar-content{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+nav.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.sidebar-top{
-    margin-top: 10px;
-    display: flex;
-    height: 5%;
-    /* border: 1px solid black; */
+.sidebar-top {
+  margin-top: 10px;
+  display: flex;
+  height: 5%;
+  /* border: 1px solid black; */
 }
 
-.user{
-    display: flex;
-    height: 100%;
-    /* width: 25%; */
-    gap: 10px;
-    align-items: center;
-    justify-content: baseline;
-    margin-left: 20px;
-    width: 100%;
+.user {
+  display: flex;
+  height: 100%;
+  /* width: 25%; */
+  gap: 10px;
+  align-items: center;
+  justify-content: baseline;
+  margin-left: 20px;
+  width: 100%;
 }
 
-.user-circle{
-    display: flex;
-    background-color: rgb(65, 94, 209);
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    /* border: 1px solid black; */
-    
-    
+.user-circle {
+  display: flex;
+  background-color: rgb(65, 94, 209);
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  /* border: 1px solid black; */
 }
-.notifs{
-    display: flex;
-    /* border: 1px solid red; */
-    width: 50%;
-    /* width: 50%; */
-    justify-content: center;
-    /* align-items: center; */
+.notifs {
+  display: flex;
+  /* border: 1px solid red; */
+  width: 50%;
+  /* width: 50%; */
+  justify-content: center;
+  /* align-items: center; */
 }
-.notif-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.notif-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .notif-icon img {
-    max-width: 100%;
-    max-height: 70%;
-    /* display: flex; */
-    /* background-image: url("./img/bell.png"); */
-
+  max-width: 100%;
+  max-height: 70%;
+  /* display: flex; */
+  /* background-image: url("./img/bell.png"); */
 }
 
 .notifs .notif-icon button {
-
-    padding: 0;               /* Remove any padding */
-    margin: 0;                /* Remove any margin */
-    border: none;             /* Remove border */
-    background: none;         /* Remove background */
-    display: inline-flex;     /* Keep button inline and align with image */
-    align-items: center;      /* Center the image vertically */
-    justify-content: center;  /* Center the image horizontally */
-    width: 100%;              /* Let the button size adjust to image */
-    height: 70%;             /* Let the button size adjust to image */
-    cursor: pointer;          /* Optional: add pointer cursor */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Remove any margin */
+  border: none; /* Remove border */
+  background: none; /* Remove background */
+  display: inline-flex; /* Keep button inline and align with image */
+  align-items: center; /* Center the image vertically */
+  justify-content: center; /* Center the image horizontally */
+  width: 100%; /* Let the button size adjust to image */
+  height: 70%; /* Let the button size adjust to image */
+  cursor: pointer; /* Optional: add pointer cursor */
 }
 
-.side-bar-main-content-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* border: 1px solid blue; */
-    height: 100%;
-    padding: 10px;
-    gap:10px;
+.side-bar-main-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* border: 1px solid blue; */
+  height: 100%;
+  padding: 10px;
+  gap: 10px;
 }
-.addItem, .searchItem, .inboxItem, .calendarItem, .settingsItem{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    /* border: 1px solid red; */
-    padding: 5px;
-    border-radius: 10px;
+.addItem,
+.searchItem,
+.inboxItem,
+.calendarItem,
+.settingsItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* border: 1px solid red; */
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .addItemText {
-    color: rgb(201, 20, 0);
+  color: rgb(201, 20, 0);
 }
 
 .addItemButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: rgb(201, 20, 0);
-    width: 25px;
-    height: 25px;
-    border-radius: 12.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: rgb(201, 20, 0);
+  width: 25px;
+  height: 25px;
+  border-radius: 12.5px;
 }
 
 .addItemButton img {
-    max-width: 50%;
+  max-width: 50%;
 }
 
-.addItem:hover, .searchItem:hover, .inboxItem:hover, .calendarItem:hover, .settingsItem:hover{
-    cursor: pointer;
-    background-color: rgb(251, 225, 199);
+.addItem:hover,
+.searchItem:hover,
+.inboxItem:hover,
+.calendarItem:hover,
+.settingsItem:hover {
+  cursor: pointer;
+  background-color: rgb(251, 225, 199);
 }
 
-.searchIcon img, .inboxItem img, .calendarItem img, .settingsItem img{
-    height: 25px;
-    width: 25px;
-
+.searchIcon img,
+.inboxItem img,
+.calendarItem img,
+.settingsItem img {
+  height: 25px;
+  width: 25px;
 }
 
-.project{
-    margin-top: 20px;
+.project {
+  margin-top: 20px;
 }
 .projects-headline {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
-.projects-headline p{
-    text-align: left;
+.projects-headline p {
+  text-align: left;
 }
 
-.projects-container{
-    display: none;
-    padding-left: 15px;
-    margin-top: 10px;
+.projects-container {
+  display: none;
+  padding-left: 15px;
+  margin-top: 10px;
 }
 
 .projects-container ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .projects-container li {
-    padding: 5px;
-    cursor: pointer;
+  padding: 5px;
+  cursor: pointer;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-.show{
-    display: block;
+.show {
+  display: block;
 }
 
-.clickable{
-    padding: 5px;
-    border-radius: 10px;
+.clickable {
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .clickable:hover {
-    cursor: pointer;
-    background-color: rgb(251, 225, 199);
+  cursor: pointer;
+  background-color: rgb(251, 225, 199);
 }
 
 /* New Project Button and Form Styling */
 #addNewProjectBtn {
-    margin-top: 10px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: #007bff;
-    font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 14px;
 }
 
 #newProjectForm {
-    display: flex;
-    margin-top: 10px;
+  display: flex;
+  margin-top: 10px;
 }
 
 #newProjectForm input {
-    flex: 1;
-    padding: 5px;
-    margin-right: 5px;
+  flex: 1;
+  padding: 5px;
+  margin-right: 5px;
 }
 
 #newProjectForm button {
-    padding: 5px;
+  padding: 5px;
 }
-
 
 .project-groups li {
-    display: flex;
-    gap: 30px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
 }
-
-
-
-
-
-
 
 /* Form/Modal Styling */
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px);
-    /* background-color: rgb(255, 142, 122); */
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  /* background-color: rgb(255, 142, 122); */
 }
 
 .modal-content {
-    position: relative;
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px;
+  position: relative;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px;
 }
 
-.close-btn{
-    position:absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 14px;
-    color: #333;
-    cursor: pointer;
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-label{
-    margin-top: 10px;
-    font-weight: bold;
+label {
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-input[type="text"],input[type="datetime-local"], select,textarea {
-    margin-top: 5px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+input[type="text"],
+input[type="datetime-local"],
+select,
+textarea {
+  margin-top: 5px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 textarea {
-    height: 120px;
-    resize: vertical;
+  height: 120px;
+  resize: vertical;
 }
 
-
 button[type="submit"] {
-    margin-top: 15px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
 
 /* The Grid */
-.main-content{
-    width: 100%;
+.main-content {
+  width: 100%;
 }
 
 .main-content h1 {
-    margin-left: 100px;
-    margin-bottom: 20px;
-    margin-top: 20px;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.flex-container{
-
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items:center;
-   gap: 20px;
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.task{
-    padding:0px 20px 0 20px;
-    width: 90%;
-    height: 100px;
-    background-color: #ff880078;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.task {
+  padding: 0px 20px 0 20px;
+  width: 90%;
+  height: 100px;
+  background-color: #ff880078;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-
-
 
 footer {
-    color: white;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #000000; /* Adjust the background color as needed */
-    padding: 11px;             /* Add padding if you want some space inside the footer */
-    text-align: center;        /* Center the text/content in the footer */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for visual separation */
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000; /* Adjust the background color as needed */
+  padding: 11px; /* Add padding if you want some space inside the footer */
+  text-align: center; /* Center the text/content in the footer */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for visual separation */
 }
-
-
-
-
-
-
-
-
-
